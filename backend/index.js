@@ -1,6 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
-
+const cors = require('cors');
 
 const database = mysql.createConnection({
     host: 'localhost',
@@ -10,7 +10,7 @@ const database = mysql.createConnection({
 });
 const app = express();
 app.use(express.json());
-
+app.use(cors())
 
 
 app.get('/api/hello', (req, res) => {
