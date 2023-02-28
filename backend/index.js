@@ -25,11 +25,12 @@ app.get('/api/books', (req, res) => {
 });
 
 app.post("/api/books", (req, res) => {
-    const query = 'INSERT INTO books (`title`, `desc`, `cover`) VALUES(?)';
+    const query = 'INSERT INTO books (`title`, `desc`, `cover`, `price`) VALUES(?)';
     const values = [
         req.body.title,
         req.body.desc,
-        req.body.cover
+        req.body.cover,
+        req.body.price
     ]
 
     database.query(query, [values], (err, results) => {
