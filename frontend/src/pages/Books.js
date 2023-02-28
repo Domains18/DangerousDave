@@ -17,6 +17,17 @@ const Books = () => {
     fetchBooks();
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/books/${id}`);
+      window.location.reload()
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+
   return (
     <div>
       <div className="title">
@@ -25,6 +36,7 @@ const Books = () => {
           <button>
             <Link to="/add" className='link'>Add New book</Link>
           </button>
+          <br />
         </div>
         <div className="books">
           {books.map((book) => (
@@ -32,6 +44,15 @@ const Books = () => {
               {book.cover && <img src={book.cover} alt="" />}
               <h2>{book.title}</h2>
               <p>{book.desc}</p>
+              <div className="options">
+                <button className='delete' onClick={()=>handleDelete(book.id)} >
+                  Delete book
+                </button>
+                <br />
+                <button className="update">
+                  Update
+                </button>
+              </div>
             </div>
           ))}
         </div>

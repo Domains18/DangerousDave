@@ -13,12 +13,21 @@
     padding: 10px;
     border-radius: 5px;
 }
-
+button{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 18px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+.delete{
+    color: red;
+}
 .link{
     text-decoration: none;
-    color: #fff;
+    color: #000;
     font-style: bold;
-
 }
 
 .link:hover{
@@ -31,4 +40,12 @@
     border-radius: 5px;
     margin: 10px;
     cursor: pointer;
+}
+.options{
+    display: flex;
+    justify-content: space-between;
+}
+.update{
+    color: green;
+    background-color: #000;
 }

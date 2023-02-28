@@ -38,4 +38,15 @@ app.post("/api/books", (req, res) => {
     });
 });
 
+//delete
+
+app.delete("/api/books/:id", (req, res) => {
+    const bookId = req.params.id;
+    const q = "DELETE FROM books WHERE id = ? "
+
+    database.query(q, [bookId], (err, data) => {
+        err ? res.json(err) : res.json("Book Has been deleted succesfully");
+    });
+});
+
 app.listen(5000, () => console.log('Listening on port 5000'));
