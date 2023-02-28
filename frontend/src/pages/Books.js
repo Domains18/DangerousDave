@@ -33,7 +33,7 @@ const Books = () => {
       <div className="title">
         <h1>Bookshop api</h1>
         <div className="button">
-          <button>
+          <button className='add-btn'>
             <Link to="/add" className='link'>Add New book</Link>
           </button>
           <br />
