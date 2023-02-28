@@ -1,3 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background-color: beige;
+}
+
 .title{
     display: flex;
     flex-direction: column;
@@ -49,4 +57,17 @@ button{
     text-decoration: none;
     color: green;
     background-color: #000;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+input{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
 }
