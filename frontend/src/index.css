@@ -21,14 +21,14 @@
     padding: 10px;
     border-radius: 5px;
 }
-button{
+/* button{
     background-color: rgba(0, 0, 0, 0.5);
     padding: 18px;
     border: none;
     border-radius: 5px;
     margin: 10px;
     cursor: pointer;
-}
+} */
 .delete{
     color: red;
 }
@@ -69,5 +69,15 @@ input{
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
-    color: #fff;
+    color: #000;
+}
+.add-button{
+    background-color: green;
+    font-weight: 900;
+    padding: 15px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
 }
