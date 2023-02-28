@@ -44,6 +44,7 @@ const Books = () => {
               {book.cover && <img src={book.cover} alt="" />}
               <h2>{book.title}</h2>
               <p>{book.desc}</p>
+              <span>$ {book.price}</span>
               <div className="options">
                 <button className='delete' onClick={()=>handleDelete(book.id)} >
                   Delete book
