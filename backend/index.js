@@ -42,10 +42,27 @@ app.post("/api/books", (req, res) => {
 
 app.delete("/api/books/:id", (req, res) => {
     const bookId = req.params.id;
-    const q = "DELETE FROM books WHERE id = ? "
+    const q = "DELETE FROM books WHERE id = ? ";
 
     database.query(q, [bookId], (err, data) => {
         err ? res.json(err) : res.json("Book Has been deleted succesfully");
+    });
+});
+
+app.put("/api/books/:id", (req, res) => {
+    const bookId = req.params.id;
+    const q = "UPDATE books SET `title` = ?, `desc` = ?, `price` = ?, `cover` = ?  WHERE id = ? ";
+
+    const values = [
+        req.body.title,
+        req.body.desc,
+        req.body.cover,
+        req.body.price
+    ]
+
+
+    database.query(q, [...values, bookId], (err, data) => {
+        err ? res.json(err) : res.json("Book Updated Succesfully");
     });
 });
 
