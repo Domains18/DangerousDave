@@ -18,11 +18,11 @@ const router = createBrowserRouter([
     element: <Books />,
   },
   {
-    path: 'add',
+    path: '/add',
     element: <Add />,
   },
   {
-    path: 'update',
+    path: '/update/:id',
     element: <Update />,
   },
 ]);

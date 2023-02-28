@@ -45,7 +45,8 @@ button{
     display: flex;
     justify-content: space-between;
 }
-.update{
+.update, .link-update{
+    text-decoration: none;
     color: green;
     background-color: #000;
 }
