@@ -11,7 +11,7 @@ import { createBrowserRouter, RouterProvider, Route, Link } from 'react-router-d
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <Books />,
   },
   {
     path: '/books',
