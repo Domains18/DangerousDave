@@ -64,6 +64,7 @@ button{
     display: flex;
     justify-content: space-between;
 }
+<<<<<<< HEAD
 .update, .link-update{
     text-decoration: none;
     color: black;
@@ -110,4 +111,9 @@ input{
     cursor: pointer;
 =======
 >>>>>>> parent of ebfd324 (styles)
+=======
+.update{
+    color: green;
+    background-color: #000;
+>>>>>>> parent of 7926980 (styles and routes)
 }
