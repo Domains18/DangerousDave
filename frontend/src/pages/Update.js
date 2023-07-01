@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const Update = () => {
 
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const bookId = location.pathname.split("/")[2]
 
   const [input, setInput] = useState({
     title: " ",
@@ -24,7 +21,7 @@ const Update = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.put("http://localhost:5000/api/books/"+ bookId, input)
+      await axios.post("http://localhost:5000/api/books", input)
       navigate("/books")
     } catch (error) {
       console.log(error)
@@ -40,7 +37,7 @@ const Update = () => {
       <input type="text" placeholder='desc' onChange={handleChange} name='desc' />
       <input type="text" placeholder='cover' onChange={handleChange} name="cover" />
       <input type="number" placeholder='price' onChange={handleChange} name='price' />
-      <button onClick={handleSubmit} className='update-button'>Update</button>
+      <button onClick={handleSubmit} className='update-button'>Add</button>
     </div>
   )
 }
