@@ -1,54 +1,27 @@
-# Compiler and compiler flags
-CC = gcc
-CFLAGS = -Wall -Wextra -Iinclude
-LDFLAGS = -lcurl
+NAME = text-editor
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -pedantic -std=c99 -g
+RM = rm -f
 
-# Directories
-SRC_DIR = src
-INC_DIR = include
-TEST_DIR = tests
-BIN_DIR = bin
-BUILD_DIR = build
+SRC = src/main.c \
+	src/terminal.c \
+	src/buffer.c \
+	src/output.c \
+	src/input.c \
+	src/init.c \
+	src/file.c \
+	src/find.c \
+	src/row_operations.c \
+	src/editor_operations.c
+	src/syntax_highlight.c
 
-# Source and object files
-SRC = $(wildcard $(SRC_DIR)/*.c)
-OBJ = $(SRC:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
-TEST_SRC = $(wildcard $(TEST_DIR)/*.c)
-TEST_OBJ = $(TEST_SRC:$(TEST_DIR)/%.c=$(BUILD_DIR)/%.o)
 
-# Target executable
-TARGET = $(BIN_DIR)/mpesa
-TEST_TARGET = $(BIN_DIR)/test_main
 
-# Default target
-all: $(TARGET) $(TEST_TARGET)
+OBJ = $(SRC:.c=.o)
 
-# Build the main executable
-$(TARGET): $(OBJ)
-	@mkdir -p $(BIN_DIR)
-	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ)-o $(NAME) 
 
-# Build the test executable
-$(TEST_TARGET): $(OBJ) $(TEST_OBJ)
-	@mkdir -p $(BIN_DIR)
-	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-# Compile object files from src
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(BUILD_DIR)
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-# Compile object files from tests
-$(BUILD_DIR)/%.o: $(TEST_DIR)/%.c
-	@mkdir -p $(BUILD_DIR)
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-# Clean build files
 clean:
-	rm -rf $(BUILD_DIR) $(BIN_DIR)
-
-# Run tests
-test: $(TEST_TARGET)
-	./$(TEST_TARGET)
-
-.PHONY: all clean test
+	$(RM) $(OBJ) $(NAME)
