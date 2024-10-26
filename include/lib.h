@@ -4,7 +4,6 @@
 #define _BSD_SOURCE
 #define _GNU_SOURCE
 
-
 #include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -18,13 +17,11 @@
 #include <time.h>
 #include <unistd.h>
 
-
 #define VIMWANNABE_VERSION "0.0.1"
 #define VIMWANNABE_TAB_STOP 8
 #define VIMWANNABE_QUIT_TIMES 3
 #define CTRL_KEY(k) ((k) & 0x1f)
 #define BUFF_INIT {NULL, 0}
-
 
 enum editorKey
 {

@@ -8,13 +8,13 @@ SRC = src/main.c \
 	src/buffer.c \
 	src/output.c \
 	src/input.c \
-	src/init.c \
 	src/file.c \
 	src/find.c \
 	src/row_operations.c \
 	src/editor_operations.c
 	src/syntax_highlight.c
 
+	src/init.c \
 
 
 OBJ = $(SRC:.c=.o)
